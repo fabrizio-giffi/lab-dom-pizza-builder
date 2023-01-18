@@ -118,27 +118,34 @@ function renderButtons() {
 function renderPrice() {
   const priceList = document.querySelector(".price ul")
   priceList.innerHTML = ""
+  let priceTotal = 10
 
   if (state.pepperoni){
     peppChild = priceList.appendChild(document.createElement('li'))
     peppChild.innerHTML = "$1 pepperoni"
+    priceTotal += 1
   }
   if (state.mushrooms){
     mushChild = priceList.appendChild(document.createElement('li'))
     mushChild.innerHTML = "$1 mushrooms"
+    priceTotal += 1
   }
   if (state.greenPeppers){
     pepperChild = priceList.appendChild(document.createElement('li'))
     pepperChild.innerHTML = "$1 green peppers"
+    priceTotal += 1
   }
   if (state.whiteSauce){
     sauceChild = priceList.appendChild(document.createElement('li'))
     sauceChild.innerHTML = "$3 white sauce"
+    priceTotal += 3
   }
   if (state.glutenFreeCrust){
     crustChild = priceList.appendChild(document.createElement('li'))
     crustChild.innerHTML = "$5 gluten-free crust"
+    priceTotal += 5
   }
+  document.querySelector(".price strong").innerText = `$${priceTotal}`
 }
 
 renderEverything();
